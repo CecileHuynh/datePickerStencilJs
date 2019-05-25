@@ -1,1 +1,35 @@
 
+.dateCustom {
+  appearance: none;
+  -webkit-appearance: none;
+  color: #9ecc9e;
+  font-family: "Helvetica", arial, sans-serif;
+  font-size: 18px;
+  border:8px solid #4ec4b2;
+  border-radius: 25px;
+  background:#fcfffe;
+  padding:5px;
+  text-align: center;
+  padding-left: 5%;
+}
+
+.dateCustom, focus {
+  color: #0a3c31;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.dateCustom::-webkit-clear-button {
+  display: none;
+}
+
+.dateCustom::-webkit-inner-spin-button { 
+  display: none;
+}
+
+.labelDate {
+  text-decoration: underline;
+  padding-left: 10px;
+}
+

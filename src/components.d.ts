@@ -6,60 +6,38 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-import { JSX } from '@stencil/core';
 
 
 export namespace Components {
   interface MyComponent {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
+    'max': string;
+    'min': string;
   }
 }
 
 declare namespace LocalJSX {
   interface MyComponent extends JSXBase.HTMLAttributes {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
-  }
-
-  interface ElementInterfaces {
-    'MyComponent': Components.MyComponent;
+    'max'?: string;
+    'min'?: string;
   }
 
   interface IntrinsicElements {
-    'MyComponent': LocalJSX.MyComponent;
+    'my-component': MyComponent;
   }
 }
+
 export { LocalJSX as JSX };
+
 
 declare module "@stencil/core" {
   export namespace JSX {
-    interface ElementInterfaces extends LocalJSX.ElementInterfaces {}
     interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
   }
 }
 
+
 declare global {
+
 
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
@@ -67,12 +45,11 @@ declare global {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
-  interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement
-  }
 
-  interface ElementTagNameMap {
+  interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
   }
+
+  interface ElementTagNameMap extends HTMLElementTagNameMap {}
 }
 
